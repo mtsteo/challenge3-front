@@ -5,11 +5,9 @@ export default {
     extend: {
       colors : {
         footerTop : '#FAF3EA',
-        grayTop : '#898989'
+        grayTop : '#898989',
+        bannerD : '#FFF3E3'
       },
-      fontSize : {
-        placeholder : '0.6rem'
-      }
     },
   },
   plugins: [],
