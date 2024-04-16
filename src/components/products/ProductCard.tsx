@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
+import SeeDetail from "./SeeDetail";
 
 export default function ProductCard() {
+  const [show, setShow] = useState(false);
   return (
-    <div className="bg-cardBg w-fit mt-8">
+    <div
+      onMouseOver={() => setShow(true)}
+      onMouseOut={() => setShow(false)}
+      className="bg-cardBg w-fit mt-8 relative "
+    >
+      {show && <SeeDetail />}
       <div className="relative">
         <img src="https://i.postimg.cc/Qtc09hjv/mesa.png" alt="" />
         <div className=" absolute right-5 top-5 flex items-center justify-center rounded-full w-12 h-12 bg-discountBg text-white font-medium">
@@ -10,6 +17,7 @@ export default function ProductCard() {
           -30%
         </div>
       </div>
+
       <div className=" flex flex-col m-5 gap-2">
         <h1 className="font-semibold text-2xl">Syltherine</h1>
         <h1 className="text-gray-400">Stylish cafe chair</h1>
