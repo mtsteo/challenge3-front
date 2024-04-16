@@ -65,7 +65,7 @@ export default function Header() {
       </div>
       <div className="flex justify-center items-center ">
         <div className="flex flex-row gap-12">
-          {MenuIcons.map((icon) => <MenuIcon path={icon.path} icon={icon.icon} />)}
+          {MenuIcons.map((icon) => <MenuIcon key={icon.id} path={icon.path} icon={icon.icon} />)}
         </div>
       </div>
     </header>
