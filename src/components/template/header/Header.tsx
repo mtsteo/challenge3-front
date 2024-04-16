@@ -5,6 +5,7 @@ import search from "../../../assets/icons/search.svg";
 import heart from "../../../assets/icons/heart.svg";
 import cart from "../../../assets/icons/cart.svg";
 import MenuButton from "./MenuButton";
+import MenuIcon from "./MenuIcon";
 
 export default function Header() {
   const MenuOptions = [
@@ -29,6 +30,29 @@ export default function Header() {
       path: "/contact"
     },
   ]
+
+  const MenuIcons = [
+    {
+      id: 1,
+      path: "",
+      icon: user
+    },
+    {
+      id: 1,
+      path: "",
+      icon: search
+    },
+    {
+      id: 1,
+      path: "",
+      icon: heart
+    },
+    {
+      id: 1,
+      path: "",
+      icon: cart
+    }
+  ]
   return (
     <header className="grid grid-cols-3 h-20 justify-center items-center">
       <Link to="/home" className=" h-fit w-fit flex  ">
@@ -41,18 +65,7 @@ export default function Header() {
       </div>
       <div className="flex justify-center items-center ">
         <div className="flex flex-row gap-12">
-          <Link className="w-fit h-fit" to="">
-            <img className="self-center w-6" src={user} alt="" />
-          </Link>
-          <Link className="w-fit h-fit" to="">
-            <img className="self-center w-6" src={search} alt="" />
-          </Link>
-          <Link className="w-fit h-fit" to="">
-            <img className="self-center w-6" src={heart} alt="" />
-          </Link>
-          <Link className="w-fit h-fit" to="">
-            <img className="self-center w-6" src={cart} alt="" />
-          </Link>
+          {MenuIcons.map((icon) => <MenuIcon path={icon.path} icon={icon.icon} />)}
         </div>
       </div>
     </header>
