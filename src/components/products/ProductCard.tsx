@@ -2,7 +2,7 @@ import React from "react";
 
 export default function ProductCard() {
   return (
-    <div className="bg-cardBg w-fit">
+    <div className="bg-cardBg w-fit mt-8">
       <div className="relative">
         <img src="https://i.postimg.cc/Qtc09hjv/mesa.png" alt="" />
         <div className=" absolute right-5 top-5 flex items-center justify-center rounded-full w-12 h-12 bg-discountBg text-white font-medium">
