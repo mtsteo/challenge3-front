@@ -28,7 +28,7 @@ export default function FooterTop() {
     },
   ];
   return (
-    <div className="bg-footerTop flex items-center justify-between h-48 p-16 ">
+    <div className="bg-footerTop flex items-center justify-between h-48 p-16 mt-20 ">
       
         {items.map((item, idx) => {
           return (

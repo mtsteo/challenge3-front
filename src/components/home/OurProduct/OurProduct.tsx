@@ -19,6 +19,9 @@ export default function OurProduct() {
           <ProductCard />
         </div>
       </div>
+      <div className="flex justify-center items-center mt-10">
+        <button className="w-60 h-12 border-2 border-[#B88E2F]  text-[#B88E2F] " >Show more</button>
+      </div>
     </section>
   );
 }
