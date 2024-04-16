@@ -1,29 +1,43 @@
 import { Link } from "react-router-dom";
-import logo from "../../assets/icons/logo.svg"
-import user from "../../assets/icons/user.svg";
-import search from "../../assets/icons/search.svg";
-import heart from "../../assets/icons/heart.svg";
-import cart from "../../assets/icons/cart.svg";
+import logo from "../../../assets/icons/logo.svg"
+import user from "../../../assets/icons/user.svg";
+import search from "../../../assets/icons/search.svg";
+import heart from "../../../assets/icons/heart.svg";
+import cart from "../../../assets/icons/cart.svg";
+import MenuButton from "./MenuButton";
 
 export default function Header() {
+  const MenuOptions = [
+    {
+      id: 1,
+      name: "Home",
+      path: "/home"
+    },
+    {
+      id: 2,
+      name: "Shop",
+      path: "/shop"
+    },
+    {
+      id: 3,
+      name: "About",
+      path: "/about"
+    },
+    {
+      id: 4,
+      name: "Contact",
+      path: "/contact"
+    },
+  ]
   return (
     <header className="grid grid-cols-3 h-20 justify-center items-center">
       <Link to="/home" className=" h-fit w-fit flex  ">
         <img className="ml-16  self-center" src={logo} alt="" />
       </Link>
       <div className="grid grid-cols-4 gap-10 ">
-        <Link to={"/home"} className="text-md font-medium self-center w-fit">
-          Home
-        </Link>
-        <Link to={"/shop"} className="text-md font-medium self-center w-fit">
-          Shop
-        </Link>
-        <Link to={"/about"} className="text-md font-medium self-center w-fit">
-          About
-        </Link>
-        <Link to={"/contact"} className="text-md font-medium self-center w-fit">
-          Contact
-        </Link>
+        {MenuOptions.map((option) => {
+          return <MenuButton key={option.id} name={option.name} path={option.path} />
+        })}
       </div>
       <div className="flex justify-center items-center ">
         <div className="flex flex-row gap-12">
