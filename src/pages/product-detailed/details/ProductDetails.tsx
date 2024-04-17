@@ -1,9 +1,7 @@
 import React from 'react'
 import ProductMini from '../../../components/products/ProductMini'
 
-export default function () {
-
-
+export default function ProductDetail () {
   return (
     <section className='mt-12'>
       <div className='grid grid-cols-2'>
