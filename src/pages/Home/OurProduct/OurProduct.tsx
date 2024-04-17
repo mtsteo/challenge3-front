@@ -1,5 +1,5 @@
 import React from "react";
-import ProductCard from "../../products/ProductCard";
+import ProductCard from "../../../components/products/ProductCard";
 import { data } from "../../../mock-data";
 import { Link } from "react-router-dom";
 

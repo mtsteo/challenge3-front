@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { data } from "../../../mock-data";
-import ProductCard from "../../products/ProductCard";
+import ProductCard from "../../../components/products/ProductCard";
 import usePagination from "../../../utils/Pagination";
 import { Pagination, PaginationItem, Stack } from "@mui/material";
-import CardLabel from "../../products/CardLabel";
+import CardLabel from "../../../components/products/CardLabel";
 
 export default function ProductList() {
   let [page, setPage] = useState(1);

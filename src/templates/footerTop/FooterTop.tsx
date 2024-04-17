@@ -2,7 +2,7 @@ import trophy from "../../assets/icons/Group.svg";
 import verified from "../../assets/icons/Verified.svg";
 import shipping from "../../assets/icons/shipping.svg";
 import support from "../../assets/icons/customer-support.svg";
-import FooterTopItem from "./FooterTopItem";
+import FooterTopItem from "../../components/template/footerTop/FooterTopItem";
 
 export default function FooterTop() {
   const items = [

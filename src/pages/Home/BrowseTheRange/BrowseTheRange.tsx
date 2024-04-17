@@ -1,5 +1,5 @@
 import React from "react";
-import CategoryItem from "./CategoryItem";
+import CategoryItem from "../../../components/home/CategoryItem";
 
 export default function BrowseTheRange() {
   const categories = [

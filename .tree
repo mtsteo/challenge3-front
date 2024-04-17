@@ -1,0 +1,50 @@
+├── App.tsx
+├── assets
+│  ├── icons
+│  └── images
+├── components
+│  ├── home
+│  │  ├── banner
+│  │  │  └── Banner.tsx
+│  │  ├── BrowseTheRange
+│  │  │  ├── BrowseTheRange.tsx
+│  │  │  └── CategoryItem.tsx
+│  │  └── OurProduct
+│  │    └── OurProduct.tsx
+│  ├── products
+│  │  ├── CardLabel.tsx
+│  │  ├── DetailsOptions.tsx
+│  │  ├── ProductCard.tsx
+│  │  └── SeeDetail.tsx
+│  ├── shop
+│  │  ├── banner
+│  │  │  └── ShopBanner.tsx
+│  │  ├── filter
+│  │  │  └── Filter.tsx
+│  │  ├── product-list
+│  │  │  └── ProductList.tsx
+│  │  └── productList
+│  └── template
+│    ├── Footer.tsx
+│    ├── FooterTop.tsx
+│    ├── FooterTopItem.tsx
+│    └── header
+│      ├── Header.tsx
+│      ├── MenuButton.tsx
+│      └── MenuIcon.tsx
+├── index.css
+├── index.tsx
+├── mock-data.ts
+├── pages
+│  ├── Home
+│  │  └── Home.tsx
+│  └── shop
+│    └── Shop.tsx
+├── react-app-env.d.ts
+├── reportWebVitals.ts
+├── setupTests.ts
+├── templates
+│  └── Root.tsx
+└── utils
+  ├── GotoTop.ts
+  └── Pagination.tsx

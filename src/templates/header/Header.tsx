@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import logo from "../../../assets/icons/logo.svg"
-import user from "../../../assets/icons/user.svg";
-import search from "../../../assets/icons/search.svg";
-import heart from "../../../assets/icons/heart.svg";
-import cart from "../../../assets/icons/cart.svg";
-import MenuButton from "./MenuButton";
-import MenuIcon from "./MenuIcon";
+import logo from "../../assets/icons/logo.svg"
+import user from "../../assets/icons/user.svg";
+import search from "../../assets/icons/search.svg";
+import heart from "../../assets/icons/heart.svg";
+import cart from "../../assets/icons/cart.svg";
+import MenuButton from "../../components/template/header/MenuButton";
+import MenuIcon from "../../components/template/header/MenuIcon";
 
 export default function Header() {
   const MenuOptions = [
