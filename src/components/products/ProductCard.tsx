@@ -14,15 +14,20 @@ export default function ProductCard({ data }: any) {
       <div className="relative">
         <img src="https://i.postimg.cc/Qtc09hjv/mesa.png" alt="" />
         {data.discount_percent ? (
-          <DiscountLabel color="bg-discountBg" text={data.discount_percent} />
-        ) : data.is_new ? <DiscountLabel color="bg-newProdBg" text="New" /> : null}
+          <DiscountLabel
+            color="bg-discountBg"
+            text={`-${data.discount_percent}%`}
+          />
+        ) : data.is_new ? (
+          <DiscountLabel color="bg-newProdBg" text="New" />
+        ) : null}
       </div>
 
       <div className=" flex flex-col m-5 gap-2">
         <h1 className="font-semibold text-2xl">{data.name}</h1>
         <h1 className="text-gray-400">{data.description}</h1>
-        <div className="flex flex-row gap-4 items-center justify-center">
-          <h1 className="text-xl font-semibold">{`R$ ${data.price.toLocaleString(
+        <div className="flex flex-row gap-2 items-center justify-center">
+          <h1 className="text-lg font-semibold">{`R$ ${data.price.toLocaleString(
             "pt-br",
             { style: "currency", currency: "BRL" }
           )}`}</h1>
