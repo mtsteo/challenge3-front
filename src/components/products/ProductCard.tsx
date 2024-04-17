@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import SeeDetail from "./SeeDetail";
+import DiscountLabel from "./CardLabel";
 
-export default function ProductCard() {
+export default function ProductCard({ data }: any) {
   const [show, setShow] = useState(false);
   return (
     <div
@@ -12,18 +13,27 @@ export default function ProductCard() {
       {show && <SeeDetail />}
       <div className="relative">
         <img src="https://i.postimg.cc/Qtc09hjv/mesa.png" alt="" />
-        <div className=" absolute right-5 top-5 flex items-center justify-center rounded-full w-12 h-12 bg-discountBg text-white font-medium">
-          {" "}
-          -30%
-        </div>
+        {data.discount_percent ? (
+          <DiscountLabel color="bg-discountBg" text={data.discount_percent} />
+        ) : data.is_new ? <DiscountLabel color="bg-newProdBg" text="New" /> : null}
       </div>
 
       <div className=" flex flex-col m-5 gap-2">
-        <h1 className="font-semibold text-2xl">Syltherine</h1>
-        <h1 className="text-gray-400">Stylish cafe chair</h1>
+        <h1 className="font-semibold text-2xl">{data.name}</h1>
+        <h1 className="text-gray-400">{data.description}</h1>
         <div className="flex flex-row gap-4 items-center justify-center">
-          <h1 className="text-xl font-semibold">R$ 2.500.000</h1>
-          <h1 className="line-through text-gray-300">R$ 3.500.000</h1>
+          <h1 className="text-xl font-semibold">{`R$ ${data.price.toLocaleString(
+            "pt-br",
+            { style: "currency", currency: "BRL" }
+          )}`}</h1>
+          <h1 className="line-through text-gray-300">
+            {data.discount_price
+              ? data.discount_price.toLocaleString("pt-br", {
+                  style: "currency",
+                  currency: "BRL",
+                })
+              : null}
+          </h1>
         </div>
       </div>
     </div>
