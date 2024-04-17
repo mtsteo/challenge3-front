@@ -29,12 +29,13 @@ export default function ProductList() {
       <div className="flex justify-center items-center mt-16">
         <Stack spacing={2}>
           <Pagination
-            itemProp=""
             page={page}
             count={count}
             variant="outlined"
             shape="rounded"
             onChange={handleChange}
+            size='large'
+            sx={{button :{background:"#B88E2F", border: "none", borderRadius :"5px", margin :'10px' }}}
           />
         </Stack>
       </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import ProductCard from "../../products/ProductCard";
 import { data } from "../../../mock-data";
+import { Link } from "react-router-dom";
 
 export default function OurProduct() {
   return (
@@ -16,9 +17,11 @@ export default function OurProduct() {
         </div>
       </div>
       <div className="flex justify-center items-center mt-10">
-        <button className="w-60 h-12 border-2 border-[#B88E2F]  text-[#B88E2F] ">
-          Show more
-        </button>
+        <Link to="/shop">
+          <button className="w-60 h-12 border-2 border-[#B88E2F]  text-[#B88E2F] ">
+            Show more
+          </button>
+        </Link>
       </div>
     </section>
   );
