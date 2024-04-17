@@ -1,5 +1,6 @@
 import React from "react";
 import ProductCard from "../../products/ProductCard";
+import { data } from "../../../mock-data";
 
 export default function OurProduct() {
   return (
@@ -9,14 +10,8 @@ export default function OurProduct() {
       </div>
       <div className="flex justify-center items-center">
         <div className="grid grid-cols-4 w-4/6">
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
+          {data.map((prod, idx) => {
+          return <ProductCard key={prod.id} data={prod}/>})}
         </div>
       </div>
       <div className="flex justify-center items-center mt-10">
