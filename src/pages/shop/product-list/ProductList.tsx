@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { data } from "../../../mock-data";
-import ProductCard from "../../../components/products/ProductCard";
+import ProductCard from "../../../components/products/product-card/ProductCard";
 import usePagination from "../../../utils/Pagination";
-import { Pagination, PaginationItem, Stack } from "@mui/material";
-import CardLabel from "../../../components/products/CardLabel";
+import { Pagination, Stack } from "@mui/material";
 
 export default function ProductList() {
   let [page, setPage] = useState(1);
@@ -34,8 +33,15 @@ export default function ProductList() {
             variant="outlined"
             shape="rounded"
             onChange={handleChange}
-            size='large'
-            sx={{button :{background:"#B88E2F", border: "none", borderRadius :"5px", margin :'10px' }}}
+            size="large"
+            sx={{
+              button: {
+                background: "#B88E2F",
+                border: "none",
+                borderRadius: "5px",
+                margin: "10px",
+              },
+            }}
           />
         </Stack>
       </div>

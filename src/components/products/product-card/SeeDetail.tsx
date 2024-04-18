@@ -1,8 +1,8 @@
 import React from "react";
-import share from '../../assets/icons/share.svg'
-import compare from '../../assets/icons/compare.svg'
-import like from '../../assets/icons/like.svg'
-import DetailsOptions from "./DetailsOptions";
+import share from '../../../assets/icons/share.svg'
+import compare from '../../../assets/icons/compare.svg'
+import like from '../../../assets/icons/like.svg'
+import DetailsOptions from "../DetailsOptions";
 import { Link } from "react-router-dom";
 export default function SeeDetail() {
   const detailOptions = [
