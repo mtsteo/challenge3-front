@@ -18,9 +18,9 @@ export default function Metadata() {
         <h1 className="text-gray-400">: Sofas, Chair, Home, Shop</h1>
         <div className="flex flex-row gap-6">
           <span className="text-gray-400">:</span>
-          <img src={facebook} alt="facebbok" />
-          <img src={linkedin} alt="likedin" />
-          <img src={twitter} alt="twitter" />
+          <img className="hover:cursor-pointer" src={facebook} alt="facebbok" />
+          <img className="hover:cursor-pointer" src={linkedin} alt="likedin" />
+          <img className="hover:cursor-pointer" src={twitter} alt="twitter" />
         </div>
       </div>
     </div>
