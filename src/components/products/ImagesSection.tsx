@@ -3,8 +3,8 @@ import ProductMini from "../../components/products/ProductMini";
 
 export default function ImagesSection() {
   return (
-    <div className="flex justify-center  ml-10">
-      <div className="flex flex-row ml-10">
+    <div className="flex justify-end">
+      <div className="flex flex-row mr-14">
         <div className="flex flex-col gap-4">
           {Array.from({ length: 4 }, () => (
             <ProductMini
