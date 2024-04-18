@@ -4,8 +4,9 @@ import BrowseTheRange from "./BrowseTheRange/BrowseTheRange";
 import OurProduct from "./OurProduct/OurProduct";
 import GoToTop from "../../utils/GotoTop";
 
-export default function () {
+export default function Home () {
   return (
+    
     <div>
       <Banner />
       <BrowseTheRange />

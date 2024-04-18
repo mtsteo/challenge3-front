@@ -1,13 +1,13 @@
 import React from 'react'
-import ShopBanner from '../../../assets/images/ShopBanner.jpg'
+import Banner from '../../../assets/images/ShopBanner.jpg'
 import { Link } from 'react-router-dom'
 
 
-export default function () {
+export default function ShopBanner () {
     return (
         <section>
             <div className='relative '>
-                <img className='blur-[3px] opacity-60 ' src={ShopBanner} alt="" />
+                <img className='blur-[3px] opacity-60 ' src={Banner} alt="" />
                 <div className='absolute top-[50%] right-[50%]'>
                     <div className='text-5xl font-medium'>Shop</div>
                     <div className='flex gap-2 mt-4 justify-center items-center'>

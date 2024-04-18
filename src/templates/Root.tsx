@@ -3,7 +3,7 @@ import Footer from "./footer/Footer";
 import FooterTop from "./footerTop/FooterTop";
 import Header from "./header/Header";
 
-export default function () {
+export default function Root () {
   return (
     <div>
       <Header />

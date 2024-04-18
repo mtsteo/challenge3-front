@@ -7,7 +7,7 @@ export default function Rating() {
       <div className="flex flex-row gap-1">
         {Array.from({ length: 5 }, () => (
           <button key={Math.floor(Math.random() * 999)}>
-            <img src={star} />
+            <img src={star} alt=""/>
           </button>
         ))}
       </div>
