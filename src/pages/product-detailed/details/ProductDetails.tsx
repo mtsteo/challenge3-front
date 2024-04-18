@@ -12,7 +12,7 @@ export default function ProductDetail() {
     <section className="mt-12">
       <div className="grid grid-cols-2">
         <ImagesSection />
-        <div className="flex flex-col gap-4 w-[90%]">
+        <div className="flex flex-col gap-4 ">
           <h1 className="text-4xl">Asgaard sofa</h1>
           <h1 className="text-xl font-medium text-gray-400">R$ 250.000,00</h1>
           <Rating key={Math.floor(Math.random() * 999)} />
