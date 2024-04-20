@@ -33,22 +33,22 @@ export default function Header() {
 
   const MenuIcons = [
     {
-      id: 1,
+      id: 5,
       path: "",
       icon: user
     },
     {
-      id: 1,
+      id: 6,
       path: "",
       icon: search
     },
     {
-      id: 1,
+      id: 7,
       path: "",
       icon: heart
     },
     {
-      id: 1,
+      id: 8,
       path: "",
       icon: cart
     }

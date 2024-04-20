@@ -2,8 +2,11 @@ import React from "react";
 import ProductCard from "../../../components/products/product-card/ProductCard";
 import { data } from "../../../mock-data";
 import { Link } from "react-router-dom";
+import { useHomeContext } from "../../../contexts/HomeContext";
 
 export default function OurProduct() {
+  const { products } = useHomeContext();
+
   return (
     <section className="mt-20">
       <div>
@@ -11,7 +14,7 @@ export default function OurProduct() {
       </div>
       <div className="flex justify-center items-center">
         <div className="grid grid-cols-4 w-4/6">
-          {data.slice(0, 8).map((prod, idx) => {
+          {products.map((prod, idx) => {
             return <ProductCard key={prod.id} data={prod} />;
           })}
         </div>

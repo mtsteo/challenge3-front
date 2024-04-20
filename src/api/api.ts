@@ -13,7 +13,7 @@ const requests = {
 export const ApiFetcher = {
   getAllproducts: async () => await requests.get("/products"),
   getByAmount: async (amount: number) =>
-    await requests.get(`/products/?amount${amount}`),
+    await requests.get(`/products/?amount=${amount}`),
   getAllCategories: async () => {
     return await requests.get("/categories");
   },
