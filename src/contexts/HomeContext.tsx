@@ -5,52 +5,55 @@ import React, {
   ReactNode,
   useContext,
 } from "react";
-import { Api } from "../api/api";
+import { ApiFetcher } from "../api/api";
+import { Product } from "../interfaces/product.interface";
+import { Category } from "../interfaces/category.interface";
 
-interface Product {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  discount_price: number;
-  discount_percent: number;
-  is_new: boolean;
-  image_link: string;
-  other_images_link: string; // Vai ser um array posteriormente
-}
-interface ProductContextType {
+interface HomeContextType {
   products: Product[];
+  categories: Category[];
 }
 
-const HomeContext = createContext<ProductContextType | undefined>(undefined);
+const HomeContext = createContext<HomeContextType | undefined>(undefined);
 
-export const useProductContext = () => {
+export const useHomeContext = () => {
   const context = useContext(HomeContext);
   if (!context) {
-    throw new Error("useProductContext must be used within a ProductProvider");
+    throw new Error("useHomeContext must be used within a ProductProvider");
   }
   return context;
 };
 
 export const HomeProvider = ({ children }: { children: ReactNode }) => {
-  const [products, setProducts] = useState<Product[]>([]);
+  const [products, setHomeProducts] = useState<Product[]>([]);
+  const [categories, setCategories] = useState<Category[]>([]);
+
+  const fetchHomeProducts = async () => {
+    try {
+      const data = await ApiFetcher.getByAmount(8);
+      setHomeProducts(data);
+    } catch (error) {
+      console.error("Error to found products:", error);
+    }
+  };
+
+  const fetchCategories = async () => {
+    try {
+      const data = await ApiFetcher.getAllCategories();
+      setCategories(data);
+    } catch (error) {
+      console.error("Error to found categories:", error);
+    }
+  };
 
   useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const data = await Api.getAllCategories();
-        setProducts(data);
-      } catch (error) {
-        console.error("Erro ao buscar produtos:", error);
-      }
-    };
-
-    fetchProducts();
+    fetchCategories();
+    fetchHomeProducts();
   }, []);
 
-  
-
   return (
-    <HomeContext.Provider value={{ products }}>{children}</HomeContext.Provider>
+    <HomeContext.Provider value={{ products, categories }}>
+      {children}
+    </HomeContext.Provider>
   );
 };
