@@ -33,7 +33,7 @@ export default function OurProduct() {
         </div>
       </div>
       <div className="flex justify-center items-center mt-10">
-        <Link to="/shop">
+        <Link to="/shop/products">
           <button className="w-60 h-12 border-2 border-[#B88E2F]  text-[#B88E2F] ">
             Show more
           </button>
