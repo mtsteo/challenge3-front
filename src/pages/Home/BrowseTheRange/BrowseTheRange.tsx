@@ -1,6 +1,5 @@
-import React, { useContext } from "react";
 import CategoryItem from "../../../components/home/CategoryItem";
-import { useHomeContext } from "../../../contexts/HomeContext";
+import { useHomeContext } from "../../../contexts/home/HomeContext";
 
 export default function BrowseTheRange() {
   const { categories } = useHomeContext();

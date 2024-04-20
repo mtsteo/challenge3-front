@@ -5,20 +5,23 @@ import usePagination from "../../../utils/Pagination";
 import { Pagination, Stack } from "@mui/material";
 import { useParams } from "react-router-dom";
 import { ApiFetcher } from "../../../api/api";
+import { useShopContext } from "../../../contexts/shop/ShopContext";
+import { Product } from "../../../interfaces/product.interface";
 
 export default function ProductListByCateg() {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<Product[]>([]);
   let [page, setPage] = useState(1);
 
   const { category } = useParams();
 
+  const { fetchProductsBycateg } = useShopContext();
+
   useEffect(() => {
     const fetch = async () => {
-      const prods = await ApiFetcher.getByCategories(category!);
+      const prods = await fetchProductsBycateg(category!);
       setProducts(prods);
-
-      fetch();
     };
+    fetch();
   }, []);
 
   const perPage = 16;
