@@ -1,24 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import CategoryItem from "../../../components/home/CategoryItem";
+import { useHomeContext } from "../../../contexts/HomeContext";
 
 export default function BrowseTheRange() {
-  const categories = [
-    {
-      id: 1,
-      name: "Dining",
-      image_link: "https://i.postimg.cc/XNcsnjHC/jantar.png",
-    },
-    {
-      id: 2,
-      name: "Living",
-      image_link: "https://i.postimg.cc/Xq3x9mJq/sala.png",
-    },
-    {
-      id: 3,
-      name: "Bedroom",
-      image_link: "https://i.postimg.cc/MTJY8N15/quarto.png",
-    },
-  ];
+  const { categories } = useHomeContext();
 
   return (
     <section className="mt-20">
