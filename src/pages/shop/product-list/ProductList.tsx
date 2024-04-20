@@ -8,19 +8,17 @@ import { Product } from "../../../interfaces/product.interface";
 
 export default function ProductList() {
   const [products, setProducts] = useState<Product[]>([]);
+  let [page, setPage] = useState(1);
 
-  const {fetchProductsShop} = useShopContext()
+  const { fetchProductsShop } = useShopContext();
 
   useEffect(() => {
     const fetch = async () => {
-      const prods = await fetchProductsShop();
+      const prods = await fetchProductsShop(4, page);
       setProducts(prods!);
     };
     fetch();
   }, []);
-
-
-  let [page, setPage] = useState(1);
 
   const perPage = 16;
   const count = Math.ceil(products.length / perPage);
@@ -35,7 +33,7 @@ export default function ProductList() {
     <section className="mt-16">
       <div className="flex justify-center items-center">
         <div className="grid grid-cols-4 gap-10 w-[80%]">
-          {_DATA.currentData().map((prod: any) => {
+          {products.map((prod: any) => {
             return <ProductCard data={prod} />;
           })}
         </div>

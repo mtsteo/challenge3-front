@@ -10,7 +10,8 @@ export default {
         cardBg: "#F4F5F7",
         discountBg: " #E97171",
         newProdBg: "#2EC1AC",
-        filterBg : '#F9F1E7'
+        filterBg : '#F9F1E7',
+        paginationButton : '#B88E2F'
       },
     },
   },

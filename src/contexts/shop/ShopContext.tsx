@@ -10,7 +10,7 @@ import { ApiFetcher } from "../../api/api";
 import { Product } from "../../interfaces/product.interface";
 
 interface ShopContextInterface {
-  fetchProductsShop: () => Promise<void>;
+  fetchProductsShop: (page: number, limit : number ) => Promise<void>;
   fetchProductsBycateg: (category: string) => Promise<Product[]>;
 }
 
@@ -28,9 +28,9 @@ export const useShopContext = () => {
 };
 
 export const ShopProvider = ({ children }: { children: ReactNode }) => {
-  const fetchProductsShop = async () => {
+  const fetchProductsShop = async (page: number, limit : number) => {
     try {
-      const data = await ApiFetcher.getAllproducts();
+      const data = await ApiFetcher.getAllproducts(page, limit);
       return data;
     } catch (error) {
       console.error("Error to found products:", error);
