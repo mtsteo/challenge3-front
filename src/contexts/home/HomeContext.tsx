@@ -11,10 +11,7 @@ import { Category } from "../../interfaces/category.interface";
 
 interface HomeContextInterface {
   products: Product[];
-  shopProducts: Product[];
   categories: Category[];
-  fetchProductsShop: () => Promise<void>;
-  fetchProductsBycateg: (category: string ) => Promise<void>;
 }
 
 const HomeContext = createContext<HomeContextInterface | undefined>(undefined);
@@ -51,24 +48,6 @@ export const HomeProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
-  const fetchProductsBycateg = async (category: string) => {
-    try {
-      const data = await ApiFetcher.getByCategories(category);
-      return (data);
-    } catch (error) {
-      console.error("Error to found products:", error);
-    }
-  };
-
-  const fetchProductsShop = async () => {
-    try {
-      const data = await ApiFetcher.getAllproducts();
-      setShopProducts(data);
-    } catch (error) {
-      console.error("Error to found products:", error);
-    }
-  };
-
   useEffect(() => {
     fetchCategories();
     fetchHomeProducts();
@@ -78,10 +57,7 @@ export const HomeProvider = ({ children }: { children: ReactNode }) => {
     <HomeContext.Provider
       value={{
         products,
-        shopProducts,
         categories,
-        fetchProductsShop,
-        fetchProductsBycateg,
       }}
     >
       {children}

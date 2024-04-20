@@ -1,16 +1,30 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { data } from "../../../mock-data";
 import ProductCard from "../../../components/products/product-card/ProductCard";
 import usePagination from "../../../utils/Pagination";
 import { Pagination, Stack } from "@mui/material";
+import { useShopContext } from "../../../contexts/shop/ShopContext";
+import { Product } from "../../../interfaces/product.interface";
 
 export default function ProductList() {
+  const [products, setProducts] = useState<Product[]>([]);
+
+  const {fetchProductsShop} = useShopContext()
+
+  useEffect(() => {
+    const fetch = async () => {
+      const prods = await fetchProductsShop();
+      setProducts(prods!);
+    };
+    fetch();
+  }, []);
+
 
   let [page, setPage] = useState(1);
 
   const perPage = 16;
-  const count = Math.ceil(data.length / perPage);
-  const _DATA = usePagination(data, perPage);
+  const count = Math.ceil(products.length / perPage);
+  const _DATA = usePagination(products, perPage);
 
   const handleChange = (e: any, p: any) => {
     setPage(p);

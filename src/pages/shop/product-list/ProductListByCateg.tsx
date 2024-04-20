@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { data } from "../../../mock-data";
 import ProductCard from "../../../components/products/product-card/ProductCard";
 import usePagination from "../../../utils/Pagination";
 import { Pagination, Stack } from "@mui/material";
 import { useParams } from "react-router-dom";
-import { ApiFetcher } from "../../../api/api";
 import { useShopContext } from "../../../contexts/shop/ShopContext";
 import { Product } from "../../../interfaces/product.interface";
 
