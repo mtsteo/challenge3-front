@@ -17,7 +17,7 @@ export default function Header() {
     {
       id: 2,
       name: "Shop",
-      path: "/shop"
+      path: "/shop/products"
     },
     {
       id: 3,

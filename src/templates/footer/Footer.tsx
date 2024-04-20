@@ -15,7 +15,7 @@ export default function Footer() {
           <div className="flex flex-col items-center  gap-7">
             <h1 className=" font-medium text-gray-400 text-lg">Links</h1>
             <Link to="/home" className=" font-medium text-lg">Home</Link>
-            <Link to="/shop" className=" font-medium text-lg">Shop</Link>
+            <Link to="/shop/products" className=" font-medium text-lg">Shop</Link>
             <Link to="/about" className=" font-medium text-lg">About</Link>
             <Link to="/contact" className=" font-medium text-lg">Contact</Link>
           </div>
