@@ -1,11 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ProductCard from "../../../components/products/product-card/ProductCard";
 import { data } from "../../../mock-data";
 import { Link } from "react-router-dom";
 import { useHomeContext } from "../../../contexts/home/HomeContext";
+import { Product } from "../../../interfaces/product.interface";
 
 export default function OurProduct() {
-  const { products } = useHomeContext();
+  const [products, setProducts] = useState<Product[]>([])
+  
+  const { fetchHomeProducts } = useHomeContext();
+
+  useEffect(() => {
+    const fetch = async()=>{
+      const data= await fetchHomeProducts(8)
+      setProducts(data)
+    }
+    fetch()
+    
+  }, [])
+  
 
   return (
     <section className="mt-20">

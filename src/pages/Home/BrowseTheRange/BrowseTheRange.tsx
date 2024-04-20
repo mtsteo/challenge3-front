@@ -1,8 +1,20 @@
+import { useEffect, useState } from "react";
 import CategoryItem from "../../../components/home/CategoryItem";
 import { useHomeContext } from "../../../contexts/home/HomeContext";
+import { Product } from "../../../interfaces/product.interface";
+import { Category } from "../../../interfaces/category.interface";
 
 export default function BrowseTheRange() {
-  const { categories } = useHomeContext();
+  const [categories, setCategories] = useState<Category[]>([])
+  const { fetchCategories } = useHomeContext();
+
+  useEffect(() => {
+    const fetch = async ()=>{
+      const data = await fetchCategories()
+      setCategories(data)
+    }
+    fetch()
+  }, []);
 
   return (
     <section className="mt-20">
