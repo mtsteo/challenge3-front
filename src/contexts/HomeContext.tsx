@@ -11,7 +11,10 @@ import { Category } from "../interfaces/category.interface";
 
 interface HomeContextType {
   products: Product[];
+  shopProducts: Product[];
   categories: Category[];
+  fetchProductsShop: () => Promise<void>;
+  fetchProductsBycateg: (category: string ) => Promise<void>;
 }
 
 const HomeContext = createContext<HomeContextType | undefined>(undefined);
@@ -26,7 +29,18 @@ export const useHomeContext = () => {
 
 export const HomeProvider = ({ children }: { children: ReactNode }) => {
   const [products, setHomeProducts] = useState<Product[]>([]);
+  const [shopProducts, setShopProducts] = useState<Product[]>([]);
+  const [shopByCategory, setShopByCategory] = useState<Product[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
+
+  const fetchCategories = async () => {
+    try {
+      const data = await ApiFetcher.getAllCategories();
+      setCategories(data);
+    } catch (error) {
+      console.error("Error to found categories:", error);
+    }
+  };
 
   const fetchHomeProducts = async () => {
     try {
@@ -37,10 +51,19 @@ export const HomeProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
-  const fetchCategories = async () => {
+  const fetchProductsBycateg = async (category: string) => {
     try {
-      const data = await ApiFetcher.getAllCategories();
-      setCategories(data);
+      const data = await ApiFetcher.getByCategories(category);
+      return (data);
+    } catch (error) {
+      console.error("Error to found categories:", error);
+    }
+  };
+
+  const fetchProductsShop = async () => {
+    try {
+      const data = await ApiFetcher.getAllproducts();
+      setShopProducts(data);
     } catch (error) {
       console.error("Error to found categories:", error);
     }
@@ -52,7 +75,15 @@ export const HomeProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   return (
-    <HomeContext.Provider value={{ products, categories }}>
+    <HomeContext.Provider
+      value={{
+        products,
+        shopProducts,
+        categories,
+        fetchProductsShop,
+        fetchProductsBycateg,
+      }}
+    >
       {children}
     </HomeContext.Provider>
   );

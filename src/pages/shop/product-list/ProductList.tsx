@@ -5,6 +5,7 @@ import usePagination from "../../../utils/Pagination";
 import { Pagination, Stack } from "@mui/material";
 
 export default function ProductList() {
+
   let [page, setPage] = useState(1);
 
   const perPage = 16;
