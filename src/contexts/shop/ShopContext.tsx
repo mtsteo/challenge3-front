@@ -10,8 +10,17 @@ import { ApiFetcher } from "../../api/api";
 import { Product } from "../../interfaces/product.interface";
 
 interface ShopContextInterface {
-  fetchProductsShop: (page: number, limit : number ) => Promise<void>;
-  fetchProductsBycateg: (category: string, page : number, limit : number) => Promise<Product[]>;
+  products: Product[];
+  limit: number;
+  setLimit: React.Dispatch<React.SetStateAction<number>>;
+  page: number;
+  setPage: React.Dispatch<React.SetStateAction<number>>;
+
+  fetchProductsBycateg: (
+    category: string,
+    page: number,
+    limit: number
+  ) => Promise<Product[]>;
 }
 
 export const ShopContext = createContext<ShopContextInterface | undefined>(
@@ -28,16 +37,24 @@ export const useShopContext = () => {
 };
 
 export const ShopProvider = ({ children }: { children: ReactNode }) => {
-  const fetchProductsShop = async (page: number, limit : number) => {
+  const [products, setProducts] = useState<Product[]>([]);
+  const [limit, setLimit] = useState(16);
+  const [page, setPage] = useState(1);
+
+  const fetchProductsShop = async () => {
     try {
       const data = await ApiFetcher.getAllproducts(page, limit);
-      return data;
+      setProducts(data);
     } catch (error) {
       console.error("Error to found products:", error);
     }
   };
 
-  const fetchProductsBycateg = async (category: string, page: number, limit : number) => {
+  const fetchProductsBycateg = async (
+    category: string,
+    page: number,
+    limit: number
+  ) => {
     try {
       const data = await ApiFetcher.getByCategories(category, page, limit);
       return data;
@@ -46,8 +63,14 @@ export const ShopProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
+  useEffect(() => {
+    fetchProductsShop();
+  }, [limit]);
+
   return (
-    <ShopContext.Provider value={{ fetchProductsShop, fetchProductsBycateg }}>
+    <ShopContext.Provider
+      value={{ products, page, setLimit, limit, setPage, fetchProductsBycateg }}
+    >
       {children}
     </ShopContext.Provider>
   );

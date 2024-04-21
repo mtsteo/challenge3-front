@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import filter from "../../../assets/icons/filter.svg";
 import grid from "../../../assets/icons/grid.svg";
 import list from "../../../assets/icons/list.svg";
+import { useShopContext } from "../../../contexts/shop/ShopContext";
 
 export default function Filter() {
+  const [amoutValue, setAmoutValue] = useState(16);
+  const { setLimit } = useShopContext();
+
+  const handleAmountChange = (e: any) => {
+    if (!e.target.value) {
+      setLimit(16);
+      return;
+    } else {
+      setLimit(e.target.value);
+    }
+  };
+
   return (
     <section>
       <div className="bg-filterBg h-20 grid grid-cols-2">
@@ -31,6 +44,7 @@ export default function Filter() {
             <div className="flex justify-center items-center gap-3 ">
               <h1 className="font-medium text-lg">Show</h1>
               <input
+                onChange={handleAmountChange}
                 className="w-12 h-12 placeholder:text-center"
                 type="text"
                 placeholder="16"
