@@ -8,25 +8,27 @@ import { Product } from "../../../interfaces/product.interface";
 
 export default function ProductList() {
   const [products, setProducts] = useState<Product[]>([]);
-  let [page, setPage] = useState(1);
+  const [page, setPage] = useState(2);
 
   const { fetchProductsShop } = useShopContext();
 
   useEffect(() => {
     const fetch = async () => {
-      const prods = await fetchProductsShop(4, page);
+
+      const prods = await fetchProductsShop(page, 16);
       setProducts(prods!);
     };
     fetch();
-  }, []);
+  }, [page]);
 
-  const perPage = 16;
-  const count = Math.ceil(products.length / perPage);
-  const _DATA = usePagination(products, perPage);
+  const handleChange = (e: any) => {
+    const opt = e.target.name;
+    if (opt == "prev") {
+      setPage((prevPage) => prevPage - 1);
+    }else{
+      setPage((prevPage) => prevPage + 1);
 
-  const handleChange = (e: any, p: any) => {
-    setPage(p);
-    _DATA.jump(p);
+    }
   };
 
   return (
@@ -38,25 +40,22 @@ export default function ProductList() {
           })}
         </div>
       </div>
-      <div className="flex justify-center items-center mt-16">
-        <Stack spacing={2}>
-          <Pagination
-            page={page}
-            count={count}
-            variant="outlined"
-            shape="rounded"
-            onChange={handleChange}
-            size="large"
-            sx={{
-              button: {
-                background: "#B88E2F",
-                border: "none",
-                borderRadius: "5px",
-                margin: "10px",
-              },
-            }}
-          />
-        </Stack>
+      <div className="flex justify-center items-center mt-16 gap-10">
+        <button
+          disabled ={page ==1 ? true : false}
+          onClick={handleChange}
+          className="bg-footerTop w-14 h-14 rounded-lg"
+          name="prev"
+        >
+          Prev
+        </button>
+        <button
+          onClick={handleChange}
+          className="bg-footerTop w-14 h-14 rounded-lg"
+          name="next"
+        >
+          Next
+        </button>
       </div>
     </section>
   );

@@ -11,7 +11,7 @@ const requests = {
 };
 
 export const ApiFetcher = {
-  getAllproducts: async (limit : number, page : number) => await requests.get(`/products?$page={page}&limit=${limit}`),
+  getAllproducts: async (page : number, limit : number) => await requests.get(`/products?page=${page}&limit=${limit}`),
   getByAmount: async (amount: number) =>
     await requests.get(`/products/?amount=${amount}`),
   getAllCategories: async () => {
