@@ -20,7 +20,7 @@ export default function ProductList() {
   // };
 
   return (
-    <section className="">
+    <section className="mt-10">
       <div className="flex justify-center items-center">
         <div className="grid grid-cols-4 gap-10 w-[80%]">
           {products.map((prod: any) => {

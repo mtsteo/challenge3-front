@@ -43,7 +43,7 @@ export const ShopProvider = ({ children }: { children: ReactNode }) => {
 
   const fetchProductsShop = async () => {
     try {
-      const data = await ApiFetcher.getAllproducts(page, limit);
+      const data = await ApiFetcher.getAllproducts(page, limit, order);
       setProducts(data);
     } catch (error) {
       console.error("Error to found products:", error);
@@ -65,7 +65,7 @@ export const ShopProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     fetchProductsShop();
-  }, [limit]);
+  }, [order, limit]);
 
   return (
     <ShopContext.Provider
