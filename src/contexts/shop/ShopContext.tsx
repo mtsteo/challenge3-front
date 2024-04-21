@@ -11,7 +11,7 @@ import { Product } from "../../interfaces/product.interface";
 
 interface ShopContextInterface {
   fetchProductsShop: (page: number, limit : number ) => Promise<void>;
-  fetchProductsBycateg: (category: string) => Promise<Product[]>;
+  fetchProductsBycateg: (category: string, page : number, limit : number) => Promise<Product[]>;
 }
 
 export const ShopContext = createContext<ShopContextInterface | undefined>(
@@ -37,9 +37,9 @@ export const ShopProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
-  const fetchProductsBycateg = async (category: string) => {
+  const fetchProductsBycateg = async (category: string, page: number, limit : number) => {
     try {
-      const data = await ApiFetcher.getByCategories(category);
+      const data = await ApiFetcher.getByCategories(category, page, limit);
       return data;
     } catch (error) {
       console.error("Error to found products:", error);

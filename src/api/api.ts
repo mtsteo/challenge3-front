@@ -11,12 +11,15 @@ const requests = {
 };
 
 export const ApiFetcher = {
-  getAllproducts: async (page : number, limit : number) => await requests.get(`/products?page=${page}&limit=${limit}`),
+  getAllproducts: async (page: number, limit: number) =>
+    await requests.get(`/products?page=${page}&limit=${limit}`),
   getByAmount: async (amount: number) =>
     await requests.get(`/products/?amount=${amount}`),
   getAllCategories: async () => {
     return await requests.get("/categories");
   },
-  getByCategories: async (name: string) =>
-    await requests.get(`/categories/${name}`),
+  getByCategories: async (name: string, page: number, limit: number) =>
+    await requests.get(
+      `products/category?name=${name}&page=${page}&limit=${limit}`
+    ),
 };
