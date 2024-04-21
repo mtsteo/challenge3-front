@@ -3,6 +3,7 @@ import filter from "../../../assets/icons/filter.svg";
 import grid from "../../../assets/icons/grid.svg";
 import list from "../../../assets/icons/list.svg";
 import { useShopContext } from "../../../contexts/shop/ShopContext";
+import SelectOrder from "./SelectOrder";
 
 export default function Filter() {
   const [amoutValue, setAmoutValue] = useState(16);
@@ -52,11 +53,7 @@ export default function Filter() {
             </div>
             <div className="flex justify-center items-center gap-3 ">
               <h1 className="font-medium text-lg">Short by</h1>
-              <input
-                className="placeholder:text-center w-40 h-12 "
-                type="text"
-                placeholder="Default"
-              />
+              <SelectOrder />
             </div>
           </div>
         </div>

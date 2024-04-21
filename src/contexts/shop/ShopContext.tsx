@@ -11,9 +11,8 @@ import { Product } from "../../interfaces/product.interface";
 
 interface ShopContextInterface {
   products: Product[];
-  limit: number;
   setLimit: React.Dispatch<React.SetStateAction<number>>;
-  page: number;
+  setOrder: React.Dispatch<React.SetStateAction<string>>;
   setPage: React.Dispatch<React.SetStateAction<number>>;
 
   fetchProductsBycateg: (
@@ -39,6 +38,7 @@ export const useShopContext = () => {
 export const ShopProvider = ({ children }: { children: ReactNode }) => {
   const [products, setProducts] = useState<Product[]>([]);
   const [limit, setLimit] = useState(16);
+  const [order, setOrder] = useState("ASC");
   const [page, setPage] = useState(1);
 
   const fetchProductsShop = async () => {
@@ -69,7 +69,7 @@ export const ShopProvider = ({ children }: { children: ReactNode }) => {
 
   return (
     <ShopContext.Provider
-      value={{ products, page, setLimit, limit, setPage, fetchProductsBycateg }}
+      value={{ products, setLimit, setOrder, setPage, fetchProductsBycateg }}
     >
       {children}
     </ShopContext.Provider>
