@@ -6,18 +6,18 @@ export default function ProductList() {
   
   
 
-  const { products} = useShopContext();
+  const { products, setPage, page} = useShopContext();
 
 
 
-  // const handleChange = (e: any) => {
-  //   const opt = e.target.name;
-  //   if (opt === "prev") {
-  //     setPage((prevPage) => prevPage - 1);
-  //   } else {
-  //     setPage((prevPage) => prevPage + 1);
-  //   }
-  // };
+  const handleChange = (e: any) => {
+    const opt = e.target.name;
+    if (opt === "prev") {
+      setPage((prevPage) => prevPage - 1);
+    } else {
+      setPage((prevPage) => prevPage + 1);
+    }
+  };
 
   return (
     <section className="mt-10">
@@ -30,15 +30,15 @@ export default function ProductList() {
       </div>
       <div className="flex justify-center items-center mt-16 gap-10">
         <button
-          // disabled={page === 1 ? true : false}
-          // onClick={handleChange}
+          disabled={page === 1 ? true : false}
+          onClick={handleChange}
           className="bg-footerTop w-14 h-14 rounded-lg"
           name="prev"
         >
           Prev
         </button>
         <button
-          // onClick={handleChange}
+          onClick={handleChange}
           className="bg-footerTop w-14 h-14 rounded-lg"
           name="next"
         >

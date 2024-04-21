@@ -11,6 +11,7 @@ import { Product } from "../../interfaces/product.interface";
 
 interface ShopContextInterface {
   products: Product[];
+  page: number;
   setLimit: React.Dispatch<React.SetStateAction<number>>;
   setOrder: React.Dispatch<React.SetStateAction<string>>;
   setPage: React.Dispatch<React.SetStateAction<number>>;
@@ -65,11 +66,18 @@ export const ShopProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     fetchProductsShop();
-  }, [order, limit]);
+  }, [order, limit, page]);
 
   return (
     <ShopContext.Provider
-      value={{ products, setLimit, setOrder, setPage, fetchProductsBycateg }}
+      value={{
+        products,
+        page,
+        setLimit,
+        setOrder,
+        setPage,
+        fetchProductsBycateg,
+      }}
     >
       {children}
     </ShopContext.Provider>
