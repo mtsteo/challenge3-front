@@ -12,15 +12,15 @@ export default function ProductCard({ data }: any) {
     >
       {show && <SeeDetail />}
       <div className="relative">
-        <img src="https://i.postimg.cc/Qtc09hjv/mesa.png" alt="" />
-        {data.discount_percent ? (
+        <img src={data.image_link} alt="" />
+        {data.discount_percent > 0 ? (
           <DiscountLabel
             color="bg-discountBg"
             text={`-${data.discount_percent}%`}
           />
-        ) : data.is_new ? (
+        ) : (
           <DiscountLabel color="bg-newProdBg" text="New" />
-        ) : null}
+        )}
       </div>
 
       <div className=" flex flex-col m-5 gap-2">
