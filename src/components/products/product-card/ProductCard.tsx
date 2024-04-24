@@ -10,7 +10,7 @@ export default function ProductCard({ data }: any) {
       onMouseOut={() => setShow(false)}
       className="bg-cardBg w-fit mt-8 relative "
     >
-      {show && <SeeDetail  id={data.id}/>}
+      {show && <SeeDetail id={data.id} />}
       <div className="relative">
         <img src={data.image_link} alt="" />
         {data.discount_percent > 0 ? (
@@ -25,7 +25,9 @@ export default function ProductCard({ data }: any) {
 
       <div className=" flex flex-col m-5 gap-2">
         <h1 className="font-semibold text-2xl">{data.name}</h1>
-        <h1 className="text-gray-400">{data.description}</h1>
+        <div>
+          <h1 className="text-gray-400">{data.description}</h1>
+        </div>
         <div className="flex flex-row gap-2 items-center justify-center">
           <h1 className="text-lg font-semibold">{`R$ ${data.price.toLocaleString(
             "pt-br",

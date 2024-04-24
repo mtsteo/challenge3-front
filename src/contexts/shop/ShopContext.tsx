@@ -62,7 +62,6 @@ export const ShopProvider = ({ children }: { children: ReactNode }) => {
   };
 
   useEffect(() => {
-    fetchProductsShop();
   }, [order, limit, page]);
 
   return (
