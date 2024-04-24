@@ -5,9 +5,7 @@ import Shop from "./pages/shop/Shop";
 import ProductPage from "./pages/product-detailed/ProductPage";
 import { HomeProvider } from "./contexts/home/HomeContext";
 import ProductList from "./pages/shop/product-list/ProductList";
-import ProductListByCateg from "./pages/shop/product-list/ProductListByCateg";
 import { ShopProvider } from "./contexts/shop/ShopContext";
-import { ProductDetailProvider } from "./contexts/product-detalis/ProductContext";
 
 function App() {
   return (
@@ -19,10 +17,6 @@ function App() {
               <Route index path="/home" element={<Home />} />
               <Route path="/shop" element={<Shop />}>
                 <Route path="/shop/products" element={<ProductList />} />
-                <Route
-                  path="/shop/products/category/:category"
-                  element={<ProductListByCateg />}
-                />
               </Route>
               <Route path="/shop/product/:id" element={<ProductPage />}></Route>
             </Route>

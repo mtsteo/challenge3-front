@@ -1,11 +1,14 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useShopContext } from "../../contexts/shop/ShopContext";
 
 export default function CategoryItem(props: any) {
+  const { fetchProductsBycateg } = useShopContext();
 
   const navigate = useNavigate();
   const handleClick = async (category: string) => {
-    navigate(`/shop/products/category/${category}`);
+    await fetchProductsBycateg(category);
+    navigate(`/shop/products/`);
   };
   return (
     <div onClick={() => handleClick(props.name)}>
@@ -14,7 +17,9 @@ export default function CategoryItem(props: any) {
         src={props.imageLink}
         alt="dinner"
       />
-      <h1 className="text-center text-2xl mt-8 font-semibold capitalize ">{props.name}</h1>
+      <h1 className="text-center text-2xl mt-8 font-semibold capitalize ">
+        {props.name}
+      </h1>
     </div>
   );
 }

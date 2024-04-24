@@ -4,9 +4,9 @@ import { useShopContext } from "../../../contexts/shop/ShopContext";
 
 export default function ProductList() {
   
-  
 
   const { products, setPage, page} = useShopContext();
+
 
 
 

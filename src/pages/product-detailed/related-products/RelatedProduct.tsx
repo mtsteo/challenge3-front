@@ -9,7 +9,7 @@ import Loading from '../../../components/products/Loading';
 export default function RelatedProduct({category} :any) {
   const { isLoading, error, data } = useQuery({
     queryKey: ["product", category[0].category],
-    queryFn: () => ApiFetcher.getByCategories(category[0].category,1 ,12),
+    queryFn: () => ApiFetcher.getByCategories(category[0].category,1 ,12, "ASC"),
   });
 
   if (isLoading) {

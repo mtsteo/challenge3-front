@@ -34,7 +34,7 @@ export const HomeProvider = ({ children }: { children: ReactNode }) => {
 
   const fetchHomeProducts = async (amount: number) => {
     try {
-      const data = await ApiFetcher.getAllproducts(1,8,'');
+      const data = await ApiFetcher.getAllproducts(1,8,"ASC");
       return data;
     } catch (error) {
       console.error("Error to found products:", error);

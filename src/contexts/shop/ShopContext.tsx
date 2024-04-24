@@ -15,12 +15,8 @@ interface ShopContextInterface {
   setLimit: React.Dispatch<React.SetStateAction<number>>;
   setOrder: React.Dispatch<React.SetStateAction<string>>;
   setPage: React.Dispatch<React.SetStateAction<number>>;
-
-  fetchProductsBycateg: (
-    category: string,
-    page: number,
-    limit: number
-  ) => Promise<Product[]>;
+  fetchProductsShop: () => Promise<void>;
+  fetchProductsBycateg: (category: string) => Promise<void>;
 }
 
 export const ShopContext = createContext<ShopContextInterface | undefined>(
@@ -51,14 +47,15 @@ export const ShopProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
-  const fetchProductsBycateg = async (
-    category: string,
-    page: number,
-    limit: number
-  ) => {
+  const fetchProductsBycateg = async (category: string) => {
     try {
-      const data = await ApiFetcher.getByCategories(category, page, limit);
-      return data;
+      const data = await ApiFetcher.getByCategories(
+        category,
+        page,
+        limit,
+        order
+      );
+      setProducts(data);
     } catch (error) {
       console.error("Error to found products:", error);
     }
@@ -76,6 +73,7 @@ export const ShopProvider = ({ children }: { children: ReactNode }) => {
         setLimit,
         setOrder,
         setPage,
+        fetchProductsShop,
         fetchProductsBycateg,
       }}
     >

@@ -15,7 +15,7 @@ export default function Metadata({data} : any) {
       <div className="flex flex-col gap-3 mt-10">
       <h1 className="text-gray-400">: {data[0].sku}</h1>
         <h1 className="text-gray-400 capitalize">: {data[0].category}</h1>
-        <h1 className="text-gray-400 flex flex-row gap-3">: {data[0].tags.map((tag : any) => <h1>{tag}</h1> )}</h1>
+        <h1 className="text-gray-400 flex flex-row gap-3">: {data[0].tags.map((tag : any) => <span key={Math.floor(Math.random() * 999)} >{tag}</span> )}</h1>
         <div className="flex flex-row gap-6">
           <span className="text-gray-400">:</span>
           <img className="hover:cursor-pointer" src={facebook} alt="facebbok" />
