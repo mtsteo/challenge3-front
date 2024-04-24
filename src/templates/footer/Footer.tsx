@@ -1,7 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useShopContext } from "../../contexts/shop/ShopContext";
 
 export default function Footer() {
+  const { fetchProductsShop } = useShopContext();
+  const handleClick = async () => {
+    await fetchProductsShop();
+  };
   return (
     <footer>
       <div className="m-10">
@@ -14,7 +19,7 @@ export default function Footer() {
           </div>
           <div className="flex flex-col items-center  gap-7">
             <h1 className=" font-medium text-gray-400 text-lg">Links</h1>
-            <Link to="/home" className=" font-medium text-lg">Home</Link>
+            <Link onClick={handleClick} to="/home" className=" font-medium text-lg">Home</Link>
             <Link to="/shop/products" className=" font-medium text-lg">Shop</Link>
             <Link to="/about" className=" font-medium text-lg">About</Link>
             <Link to="/contact" className=" font-medium text-lg">Contact</Link>

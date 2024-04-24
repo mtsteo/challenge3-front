@@ -38,7 +38,7 @@ export default function ProductPage() {
           <Link className="text-gray-500" to="/home">
             Home
           </Link>
-          <Link className="text-gray-500" to="/shop">
+          <Link className="text-gray-500" to="/shop/products">
             Shop
           </Link>
           <div className=" border-l-2 border-gray-400 flex items-center h-10">

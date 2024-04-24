@@ -1,18 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useProductDetailContext } from "../../../contexts/product-detalis/ProductContext";
-import Loading from "../../../components/products/Loading";
+import { useShopContext } from "../../../contexts/shop/ShopContext";
+
 
 export default function Breadcrumb(props : any) {
- 
+  const { fetchProductsShop } = useShopContext();
+
 
   return (
     <section className="bg-filterBg h-20 flex">
       <div className=" flex items-center gap-5 ml-20">
         <Link className="text-gray-500" to="/home">
-          Home
+          Hom
         </Link>
-        <Link className="text-gray-500" to="/shop">
+        <Link className="text-gray-500" to="/shop/products">
           Shop
         </Link>
         <div className=" border-l-2 border-gray-400 flex items-center h-10">

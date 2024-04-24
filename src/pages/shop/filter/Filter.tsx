@@ -17,6 +17,7 @@ export default function Filter() {
       setLimit(e.target.value);
     }
   };
+  
 
   return (
     <section>
