@@ -10,7 +10,7 @@ export default function ProductCard({ data }: any) {
       onMouseOut={() => setShow(false)}
       className="bg-cardBg w-fit mt-8 relative "
     >
-      {show && <SeeDetail />}
+      {show && <SeeDetail  id={data.id}/>}
       <div className="relative">
         <img src={data.image_link} alt="" />
         {data.discount_percent > 0 ? (

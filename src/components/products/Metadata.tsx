@@ -3,7 +3,7 @@ import facebook from "../../assets/icons/facebook.svg";
 import linkedin from "../../assets/icons/linkedin.svg";
 import twitter from "../../assets/icons/twitter.svg";
 
-export default function Metadata() {
+export default function Metadata({data} : any) {
   return (
     <div className="flex flex-row  gap-5 border-t-2 mt-12 ">
       <div className="flex flex-col gap-3 mt-10">
@@ -13,8 +13,8 @@ export default function Metadata() {
         <h1 className="text-gray-400">Share</h1>
       </div>
       <div className="flex flex-col gap-3 mt-10">
-        <h1 className="text-gray-400">: SS01</h1>
-        <h1 className="text-gray-400">: Sofas</h1>
+      <h1 className="text-gray-400">: {data[0].sku}</h1>
+        <h1 className="text-gray-400 capitalize">: {data[0].category}</h1>
         <h1 className="text-gray-400">: Sofas, Chair, Home, Shop</h1>
         <div className="flex flex-row gap-6">
           <span className="text-gray-400">:</span>

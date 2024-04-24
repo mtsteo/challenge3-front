@@ -10,7 +10,7 @@ import { Product } from "../../interfaces/product.interface";
 
 interface ProductDetailInterface {
   product: Product[];
-  setId: React.Dispatch<React.SetStateAction<string>>;
+  FetchProductDetail: (id: string) => Promise<void>;
 }
 
 export const ProductDetailContext = createContext<
@@ -34,9 +34,8 @@ export const ProductDetailProvider = ({
   children: ReactNode;
 }) => {
   const [product, setProduct] = useState<Product[]>([]);
-  const [id, setId] = useState("");
 
-  const FetchProductDetail = async () => {
+  const FetchProductDetail = async (id: string) => {
     try {
       const data = await ApiFetcher.getOneProduct(id);
       setProduct(data);
@@ -45,12 +44,11 @@ export const ProductDetailProvider = ({
     }
   };
 
-  useEffect(() => {
-    FetchProductDetail();
-  }, [id]);
+  
+
 
   return (
-    <ProductDetailContext.Provider value={{ product, setId }}>
+    <ProductDetailContext.Provider value={{ product, FetchProductDetail }}>
       {children}
     </ProductDetailContext.Provider>
   );

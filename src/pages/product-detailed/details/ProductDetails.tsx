@@ -7,7 +7,7 @@ import ImagesSection from "../../../components/products/ImagesSection";
 import ActionOptions from "../../../components/products/ActionOptions";
 import Metadata from "../../../components/products/Metadata";
 
-export default function ProductDetail() {
+export default function ProductDetail(props : any) {
   return (
     <section className="mt-12">
       <div className="grid grid-cols-2">

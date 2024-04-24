@@ -7,33 +7,36 @@ import { HomeProvider } from "./contexts/home/HomeContext";
 import ProductList from "./pages/shop/product-list/ProductList";
 import ProductListByCateg from "./pages/shop/product-list/ProductListByCateg";
 import { ShopProvider } from "./contexts/shop/ShopContext";
+import { ProductDetailProvider } from "./contexts/product-detalis/ProductContext";
 
 function App() {
   return (
     <HomeProvider>
-      <Routes>
-        <Route path="/" element={<Navigate to="/home" replace />} />
-        <Route path="/" element={<Root />}>
-          <Route index path="/home" element={<Home />} /> 
+      <ProductDetailProvider>
+        <Routes>
+          <Route path="/" element={<Navigate to="/home" replace />} />
+          <Route path="/" element={<Root />}>
+            <Route index path="/home" element={<Home />} />
 
-          <Route
-            path="/shop"
-            element={
-              <ShopProvider>
-                <Shop />
-              </ShopProvider>
-            }
-          >
-            <Route path="/shop/products" element={<ProductList />} />
             <Route
-              path="/shop/products/category/:category"
-              element={<ProductListByCateg />}
-            />
-          </Route>
+              path="/shop"
+              element={
+                <ShopProvider>
+                  <Shop />
+                </ShopProvider>
+              }
+            >
+              <Route path="/shop/products" element={<ProductList />} />
+              <Route
+                path="/shop/products/category/:category"
+                element={<ProductListByCateg />}
+              />
+            </Route>
 
-          <Route path="/product" element={<ProductPage />}></Route>
-        </Route>
-      </Routes>
+            <Route path="/shop/product/:id" element={<ProductPage />}></Route>
+          </Route>
+        </Routes>
+      </ProductDetailProvider>
     </HomeProvider>
   );
 }
