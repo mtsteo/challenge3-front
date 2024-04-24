@@ -12,31 +12,22 @@ import { ProductDetailProvider } from "./contexts/product-detalis/ProductContext
 function App() {
   return (
     <HomeProvider>
-      <ProductDetailProvider>
-        <Routes>
-          <Route path="/" element={<Navigate to="/home" replace />} />
-          <Route path="/" element={<Root />}>
-            <Route index path="/home" element={<Home />} />
-
-            <Route
-              path="/shop"
-              element={
-                <ShopProvider>
-                  <Shop />
-                </ShopProvider>
-              }
-            >
-              <Route path="/shop/products" element={<ProductList />} />
-              <Route
-                path="/shop/products/category/:category"
-                element={<ProductListByCateg />}
-              />
+        <ShopProvider>
+          <Routes>
+            <Route path="/" element={<Navigate to="/home" replace />} />
+            <Route path="/" element={<Root />}>
+              <Route index path="/home" element={<Home />} />
+              <Route path="/shop" element={<Shop />}>
+                <Route path="/shop/products" element={<ProductList />} />
+                <Route
+                  path="/shop/products/category/:category"
+                  element={<ProductListByCateg />}
+                />
+              </Route>
+              <Route path="/shop/product/:id" element={<ProductPage />}></Route>
             </Route>
-
-            <Route path="/shop/product/:id" element={<ProductPage />}></Route>
-          </Route>
-        </Routes>
-      </ProductDetailProvider>
+          </Routes>
+        </ShopProvider>
     </HomeProvider>
   );
 }

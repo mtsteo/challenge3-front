@@ -14,9 +14,6 @@ import ProductSize from "../../components/products/ProductSize";
 import ProductColor from "../../components/products/ProductColor";
 import ActionOptions from "../../components/products/ActionOptions";
 import Metadata from "../../components/products/Metadata";
-import ProductCard from "../../components/products/product-card/ProductCard";
-import { Product } from "../../interfaces/product.interface";
-import Rating from "../../components/products/Rating";
 import Ratings from "../../components/products/Rating";
 
 export default function ProductPage() {
@@ -30,7 +27,9 @@ export default function ProductPage() {
   if (isLoading) {
     return <Loading />;
   }
-  console.log(data)
+  if(error) {
+    console.log(error)
+  }
 
   return (
     <>
@@ -49,7 +48,7 @@ export default function ProductPage() {
       </section>
       <section className="mt-12">
         <div className="grid grid-cols-2">
-          <ImagesSection />
+          <ImagesSection data={data} />
           <div className="flex flex-col gap-4 ">
             <h1 className="text-4xl">{data[0].name}</h1>
             <h1 className="text-xl font-medium text-gray-400">{data[0].price.toLocaleString(
@@ -75,34 +74,12 @@ export default function ProductPage() {
         <div className="flex justify-center items-center mt-10">
           <div className="flex flex-col w-[70%]">
             <p className="text-gray-400">
-              Embodying the raw, wayward spirit of rock ‘n’ roll, the Kilburn
-              portable active stereo speaker takes the unmistakable look and
-              sound of Marshall, unplugs the chords, and takes the show on the
-              road. <br />
-              <br />
-              <br />
-              Weighing in under 7 pounds, the Kilburn is a lightweight piece of
-              vintage styled engineering. Setting the bar as one of the loudest
-              speakers in its class, the Kilburn is a compact, stout-hearted
-              hero with a well-balanced audio which boasts a clear midrange and
-              extended highs for a sound that is both articulate and pronounced.
-              The analogue knobs allow you to fine tune the controls to your
-              personal preferences while the guitar-influenced leather strap
-              enables easy and stylish travel.
+              {data[0].large_description2}
             </p>
           </div>
         </div>
       </section>
-      <section className="mt-20">
-        <div className="flex justify-center items-center">
-          <h1 className="text-4xl font-medium">Related Products</h1>
-        </div>
-        {/* <div className="flex flex-row gap-10 justify-center item-center">
-          {data.slice(0, 4).map((prod: any) => {
-            return <ProductCard data={prod} />;
-          })}
-        </div> */}
-      </section>
+      <RelatedProduct category={data}/>
       <GoToTop />
     </>
   );
