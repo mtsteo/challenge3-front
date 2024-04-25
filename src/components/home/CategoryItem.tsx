@@ -4,11 +4,8 @@ import { useShopContext } from "../../contexts/shop/ShopContext";
 
 export default function CategoryItem(props: any) {
 
-  const { fetchProductsBycateg } = useShopContext();
-
   const navigate = useNavigate();
   const handleClick = async (category: string) => {
-    await fetchProductsBycateg(category);
     navigate(`/shop/products/category/${category}`);
   };
   return (
