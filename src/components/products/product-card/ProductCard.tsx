@@ -12,7 +12,7 @@ export default function ProductCard({ data }: any) {
     >
       {show && <SeeDetail id={data.id} />}
       <div className="relative">
-        <img src={data.image_link} alt="" />
+        <img className="w-[285px] h-[301]" src={data.image_link} alt="" />
         {data.discount_percent > 0 ? (
           <DiscountLabel
             color="bg-discountBg"
