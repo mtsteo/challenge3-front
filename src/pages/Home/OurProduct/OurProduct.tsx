@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from "react";
 import ProductCard from "../../../components/products/product-card/ProductCard";
-import { data } from "../../../mock-data";
 import { Link } from "react-router-dom";
 import { useHomeContext } from "../../../contexts/home/HomeContext";
 import { Product } from "../../../interfaces/product.interface";
+import { ApiFetcher } from "../../../api/api";
 
 export default function OurProduct() {
   const [products, setProducts] = useState<Product[]>([])
   
-  const { fetchHomeProducts } = useHomeContext();
 
   useEffect(() => {
     const fetch = async()=>{
-      const data= await fetchHomeProducts(8)
+      const data= await ApiFetcher.getAllproducts(1,8)
       setProducts(data)
     }
     fetch()
