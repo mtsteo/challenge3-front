@@ -1,16 +1,14 @@
 import { useEffect, useState } from "react";
 import CategoryItem from "../../../components/home/CategoryItem";
-import { useHomeContext } from "../../../contexts/home/HomeContext";
-import { Product } from "../../../interfaces/product.interface";
 import { Category } from "../../../interfaces/category.interface";
+import { ApiFetcher } from "../../../api/api";
 
 export default function BrowseTheRange() {
   const [categories, setCategories] = useState<Category[]>([])
-  const { fetchCategories } = useHomeContext();
 
   useEffect(() => {
     const fetch = async ()=>{
-      const data = await fetchCategories()
+      const data = await ApiFetcher.getAllCategories()
       setCategories(data)
     }
     fetch()
