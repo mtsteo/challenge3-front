@@ -1,18 +1,7 @@
-import { useEffect, useState } from "react";
 import CategoryItem from "../../../components/home/CategoryItem";
-import { Category } from "../../../interfaces/category.interface";
-import { ApiFetcher } from "../../../api/api";
 
-export default function BrowseTheRange() {
-  const [categories, setCategories] = useState<Category[]>([])
 
-  useEffect(() => {
-    const fetch = async ()=>{
-      const data = await ApiFetcher.getAllCategories()
-      setCategories(data)
-    }
-    fetch()
-  }, []);
+export default function BrowseTheRange({category}: any) {
 
   return (
     <section className="mt-20">
@@ -20,7 +9,7 @@ export default function BrowseTheRange() {
         <h1 className="text-center font-bold text-3xl">Browse The Range</h1>
       </div>
       <div className="flex flex-row items-center justify-center mt-20 gap-10">
-        {categories.map((item) => {
+        {category.map((item : any) => {
           return (
             <CategoryItem
               key={item.id}

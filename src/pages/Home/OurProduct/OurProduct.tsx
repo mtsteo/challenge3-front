@@ -1,23 +1,8 @@
-import React, { useEffect, useState } from "react";
 import ProductCard from "../../../components/products/product-card/ProductCard";
 import { Link } from "react-router-dom";
-import { useHomeContext } from "../../../contexts/home/HomeContext";
-import { Product } from "../../../interfaces/product.interface";
-import { ApiFetcher } from "../../../api/api";
 
-export default function OurProduct() {
-  const [products, setProducts] = useState<Product[]>([])
-  
 
-  useEffect(() => {
-    const fetch = async()=>{
-      const data= await ApiFetcher.getAllproducts(1,8)
-      setProducts(data)
-    }
-    fetch()
-    
-  }, [])
-  
+export default function OurProduct({ product }: any) {
 
   return (
     <section className="mt-20">
@@ -26,7 +11,7 @@ export default function OurProduct() {
       </div>
       <div className="flex justify-center items-center">
         <div className="grid grid-cols-4 w-4/6">
-          {products.map((prod, idx) => {
+          {product.map((prod : any) => {
             return <ProductCard key={prod.id} data={prod} />;
           })}
         </div>
