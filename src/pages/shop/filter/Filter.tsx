@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import filter from "../../../assets/icons/filter.svg";
 import grid from "../../../assets/icons/grid.svg";
 import list from "../../../assets/icons/list.svg";
-import { useShopContext } from "../../../contexts/shop/ShopContext";
 
 export default function Filter({ setAmount, setOrder }: any) {
   const handleAmountChange = (e: any) => {

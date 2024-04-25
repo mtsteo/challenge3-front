@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import ProductCard from "../../../components/products/product-card/ProductCard";
-import { useShopContext } from "../../../contexts/shop/ShopContext";
 
 export default function ProductList({
   products,
