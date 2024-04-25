@@ -3,22 +3,19 @@ import filter from "../../../assets/icons/filter.svg";
 import grid from "../../../assets/icons/grid.svg";
 import list from "../../../assets/icons/list.svg";
 import { useShopContext } from "../../../contexts/shop/ShopContext";
-import SelectOrder from "./SelectOrder";
 
-export default function Filter() {
-  const [amoutValue, setAmoutValue] = useState(16);
-  const { setLimit } = useShopContext();
-
+export default function Filter({ setAmount, setOrder }: any) {
   const handleAmountChange = (e: any) => {
-    if (!e.target.value) {
-      setLimit(16);
-      return;
+    if (e.target.value) {
+      setAmount(e.target.value);
     } else {
-      setLimit(e.target.value);
+      setAmount(16);
     }
   };
-  
 
+  const handleOrderChange = (e: any) => {
+    setOrder(e.target.value);
+  };
   return (
     <section>
       <div className="bg-filterBg h-20 grid grid-cols-2">
@@ -54,7 +51,17 @@ export default function Filter() {
             </div>
             <div className="flex justify-center items-center gap-3 ">
               <h1 className="font-medium text-lg">Short by</h1>
-              <SelectOrder />
+              <div>
+                <select
+                  onChange={handleOrderChange}
+                  className="w-28 h-12 text-gray-400"
+                  defaultValue="default"
+                >
+                  <option value="DESC">Default</option>
+                  <option value="ASC">Ascending</option>
+                  <option value="DESC">Descending</option>
+                </select>
+              </div>
             </div>
           </div>
         </div>

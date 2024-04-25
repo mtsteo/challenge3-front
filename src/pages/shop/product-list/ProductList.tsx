@@ -2,23 +2,12 @@ import React, { useEffect, useState } from "react";
 import ProductCard from "../../../components/products/product-card/ProductCard";
 import { useShopContext } from "../../../contexts/shop/ShopContext";
 
-export default function ProductList() {
-  
-
-  const { products, setPage, page} = useShopContext();
-
-
-
-
-  const handleChange = (e: any) => {
-    const opt = e.target.name;
-    if (opt === "prev") {
-      setPage((prevPage) => prevPage - 1);
-    } else {
-      setPage((prevPage) => prevPage + 1);
-    }
-  };
-
+export default function ProductList({
+  products,
+  prevPage,
+  nextPage,
+  page,
+}: any) {
   return (
     <section className="mt-10">
       <div className="flex justify-center items-center">
@@ -30,15 +19,18 @@ export default function ProductList() {
       </div>
       <div className="flex justify-center items-center mt-16 gap-10">
         <button
-          disabled={page === 1 ? true : false}
-          onClick={handleChange}
+          onClick={prevPage}
+          disabled={page === 1 ? true : products.length < 16 ? true : false}
           className="bg-footerTop w-14 h-14 rounded-lg"
           name="prev"
         >
           Prev
         </button>
         <button
-          onClick={handleChange}
+          onClick={nextPage}
+          disabled={
+            !products.length ? true : products.length < 16 ? true : false
+          }
           className="bg-footerTop w-14 h-14 rounded-lg"
           name="next"
         >
