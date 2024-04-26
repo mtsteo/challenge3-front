@@ -11,7 +11,7 @@ export default function ImagesSection({ data }: any) {
           ))}
         </div>
         <div>
-          <img className="rounded-2xl" src={data[0].image_link} alt="" />
+          <img className="rounded-2xl w-[500px] h-[500px]" src={data[0].image_link} alt="" />
         </div>
       </div>
     </div>
