@@ -6,23 +6,28 @@ import ProductPage from "./pages/product-detailed/ProductPage";
 import { HomeProvider } from "./contexts/home/HomeContext";
 import ProductList from "./pages/shop/product-list/ProductList";
 import { ShopProvider } from "./contexts/shop/ShopContext";
+import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
   return (
     <HomeProvider>
-        <ShopProvider>
-          <Routes>
-            <Route path="/" element={<Navigate to="/home" replace />} />
-            <Route path="/" element={<Root />}>
-              <Route index path="/home" element={<Home />} />
-              <Route path="/shop/products" element={<Shop />}>
-                <Route path="/shop/products" element={<ProductList />} />
-                <Route path="/shop/products/category/:category" element={<ProductList />} />
-              </Route>
-              <Route path="/shop/product/:id" element={<ProductPage />}></Route>
+      <ShopProvider>
+        <Routes>
+          <Route path="/" element={<Navigate to="/home" replace />} />
+          <Route path="/" element={<Root />}>
+            <Route index path="/home" element={<Home />} />
+            <Route path="/shop/products" element={<Shop />}>
+              <Route path="/shop/products" element={<ProductList />} />
+              <Route
+                path="/shop/products/category/:category"
+                element={<ProductList />}
+              />
             </Route>
-          </Routes>
-        </ShopProvider>
+            <Route path="/shop/product/:id" element={<ProductPage />}></Route>
+          </Route>
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </ShopProvider>
     </HomeProvider>
   );
 }
