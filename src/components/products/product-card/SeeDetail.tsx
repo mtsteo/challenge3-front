@@ -4,7 +4,6 @@ import compare from '../../../assets/icons/compare.svg'
 import like from '../../../assets/icons/like.svg'
 import DetailsOptions from "../DetailsOptions";
 import { Link } from "react-router-dom";
-import { useProductDetailContext } from "../../../contexts/product-detalis/ProductContext";
 
 export default function SeeDetail(props:any) {
 

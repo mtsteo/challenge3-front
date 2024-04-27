@@ -6,13 +6,12 @@ import heart from "../../assets/icons/heart.svg";
 import cart from "../../assets/icons/cart.svg";
 import MenuButton from "../../components/template/header/MenuButton";
 import MenuIcon from "../../components/template/header/MenuIcon";
-import { useShopContext } from "../../contexts/shop/ShopContext";
 
 export default function Header() {
-  const { fetchProductsShop } = useShopContext();
-  const handleClick = async () => {
-    await fetchProductsShop();
-  };
+  // const { fetchProductsShop } = useShopContext();
+  // const handleClick = async () => {
+  //   await fetchProductsShop();
+  // };
 
   const MenuOptions = [
     {
@@ -72,7 +71,6 @@ export default function Header() {
           Home
         </Link>
         <Link
-          onClick={handleClick}
           to="/shop/products"
           className="transition hover:scale-105 duration-75 hover:font-semibold text-md font-medium self-center w-fit"
         >

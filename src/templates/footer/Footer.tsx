@@ -1,12 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useShopContext } from "../../contexts/shop/ShopContext";
 
 export default function Footer() {
-  const { fetchProductsShop } = useShopContext();
-  const handleClick = async () => {
-    await fetchProductsShop();
-  };
   return (
     <footer>
       <div className="m-10">
@@ -19,16 +14,30 @@ export default function Footer() {
           </div>
           <div className="flex flex-col items-center  gap-7">
             <h1 className=" font-medium text-gray-400 text-lg">Links</h1>
-            <Link onClick={handleClick} to="/home" className=" font-medium text-lg">Home</Link>
-            <Link to="/shop/products" className=" font-medium text-lg">Shop</Link>
-            <Link to="/about" className=" font-medium text-lg">About</Link>
-            <Link to="/contact" className=" font-medium text-lg">Contact</Link>
+            <Link to="/home" className=" font-medium text-lg">
+              Home
+            </Link>
+            <Link to="/shop/products" className=" font-medium text-lg">
+              Shop
+            </Link>
+            <Link to="/about" className=" font-medium text-lg">
+              About
+            </Link>
+            <Link to="/contact" className=" font-medium text-lg">
+              Contact
+            </Link>
           </div>
           <div className="flex flex-col  items-center  gap-7">
             <h1 className="font-medium text-gray-400 text-lg">Help</h1>
-            <Link to="/payment" className="font-medium text-lg">Payment Options</Link>
-            <Link to="/return" className="font-medium text-lg">Return</Link>
-            <Link to="/privacy" className="font-medium text-lg">Privacy Policies</Link>
+            <Link to="/payment" className="font-medium text-lg">
+              Payment Options
+            </Link>
+            <Link to="/return" className="font-medium text-lg">
+              Return
+            </Link>
+            <Link to="/privacy" className="font-medium text-lg">
+              Privacy Policies
+            </Link>
           </div>
           <div className="flex flex-col gap-7">
             <h1 className="text-gray-400 text-lg">Newsletter</h1>

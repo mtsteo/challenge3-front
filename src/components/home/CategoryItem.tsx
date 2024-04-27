@@ -1,6 +1,5 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { useShopContext } from "../../contexts/shop/ShopContext";
 
 export default function CategoryItem(props: any) {
 
