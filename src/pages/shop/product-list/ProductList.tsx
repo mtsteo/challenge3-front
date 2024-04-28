@@ -12,7 +12,7 @@ export default function ProductList({
       <div className="flex justify-center items-center">
         <div className="grid grid-cols-4 gap-10 w-[80%]">
           {products.map((prod: any) => {
-            return <ProductCard data={prod} />;
+            return <ProductCard key={prod.id} data={prod} />;
           })}
         </div>
       </div>
