@@ -10,7 +10,7 @@ export default function OurProduct({ product }: any) {
         <h1 className="text-center font-bold text-3xl">Our products</h1>
       </div>
       <div className="flex justify-center items-center">
-        <div className="grid grid-cols-4 w-4/6">
+        <div className="grid grid-cols-4 w-4/6 max-[1735px]:grid-cols-3 max-[1310px]:grid-cols-2">
           {product.map((prod : any) => {
             return <ProductCard key={prod.id} data={prod} />;
           })}

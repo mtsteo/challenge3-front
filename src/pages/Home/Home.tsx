@@ -24,11 +24,11 @@ export default function Home() {
     fetchProduct();
   }, []);
   return (
-    <div>
+    <>
       <Banner />
       <BrowseTheRange category={category} />
       <OurProduct product={product} />
       <GoToTop />
-    </div>
+    </>
   );
 }
