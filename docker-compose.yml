@@ -1,29 +1,14 @@
 version: '3.7'
 
 services:
-  postgres:
-    image: postgres:16.2-alpine3.19
-    ports:
-      - '5432:5432'
-    environment:
-      POSTGRES_DB: challenge3
-      POSTGRES_USER: root
-      POSTGRES_PASSWORD: compass
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-
   api:
-    image: mtsteo/challenge3-api:1.0.0
+    image: mtsteo/challenge3-api
     ports:
       - "3001:3001"
-    depends_on:
-      - postgres
 
   frontend:
-    image: mtsteo/challenge3-front:1.0.0
+    image: mtsteo/challenge3-front
     ports:
       - "80:80"
     depends_on:
       - api
-volumes:
-  postgres_data:
