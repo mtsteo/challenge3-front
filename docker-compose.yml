@@ -3,12 +3,21 @@ version: '3.7'
 services:
   api:
     image: mtsteo/challenge3-api
+    container_name: api
     ports:
       - "3001:3001"
+    networks:
+      - myNetwork
 
   frontend:
     image: mtsteo/challenge3-front
     ports:
       - "80:80"
+    networks:
+      - myNetwork
     depends_on:
       - api
+
+networks:
+  myNetwork:
+    
